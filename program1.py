@@ -1,6 +1,3 @@
-Here is the code:
-
-
 
 def isValid(s: str) -> bool:
     bracket_map = {")": "(", "}": "{", "]": "["}
