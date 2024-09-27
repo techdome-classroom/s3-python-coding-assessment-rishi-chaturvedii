@@ -12,7 +12,7 @@ def isValid(s: str) -> bool:
     return not stack
 
 
-# Example usage:
+
 print(isValid("()"))  
 print(isValid("()[]{}"))  
 print(isValid("(]"))
