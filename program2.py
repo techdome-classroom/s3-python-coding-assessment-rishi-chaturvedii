@@ -26,4 +26,4 @@ class Solution(object):
                 
                 total += roman_dict[s[i]]
 
-        return total
+    return total
