@@ -1,5 +1,5 @@
 def romanToInt(s: str) -> int:
-    # Create a mapping of Roman numerals to their corresponding integer values
+    Create a mapping of Roman numerals to their corresponding integer values
     roman_map = {
         'I': 1, 
         'V': 5, 
