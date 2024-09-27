@@ -23,3 +23,4 @@ class Solution(object):
 
         # Return True if stack is empty, meaning all brackets were matched correctly
         return not stack
+
