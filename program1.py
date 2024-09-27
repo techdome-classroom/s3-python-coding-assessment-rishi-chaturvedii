@@ -1,4 +1,3 @@
-
 def isValid(s: str) -> bool:
     bracket_map = {")": "(", "}": "{", "]": "["}
     stack = []
