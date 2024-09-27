@@ -4,28 +4,26 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        
+        roman_dict = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
 
-        
-        
-        roman_map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-        
         total = 0
-        prev_value = 0
+
         
-
-        for char in reversed(s):
-
-            current_value = roman_map[char]
+        for i in range(len(s)):
             
-
-            if current_value < prev_value:
-                total -= current_value
+            if i + 1 < len(s) and roman_dict[s[i]] < roman_dict[s[i + 1]]:
+                total -= roman_dict[s[i]]
             else:
-                total += current_value
                 
+                total += roman_dict[s[i]]
 
-            prev_value = current_value
-        
-        return total
-
-        pass
+        return total
