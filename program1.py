@@ -15,4 +15,4 @@ def isValid(s: str) -> bool:
 # Example usage:
 print(isValid("()"))  
 print(isValid("()[]{}"))  
-print(isValid("(]"))  
+print(isValid("(]"))
