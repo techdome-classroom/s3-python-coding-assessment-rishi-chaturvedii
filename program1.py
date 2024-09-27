@@ -1,37 +1,53 @@
 class Solution(object):
-    def isValid(self, s):
+    def romanToInt(self, s):
         """
         :type s: str
-        :rtype: bool
+        :rtype: int
         """
-        # Dictionary to map each closing bracket to its corresponding open bracket
-        bracket_map = {')': '(', '}': '{', ']': '['}
-        stack = []
+        
+        roman_dict = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
 
-        # Iterate through each character in the string
-        for char in s:
-            # If the character is a closing bracket
-            if char in bracket_map:
-                # Pop the top element from the stack if available, else use a dummy value
-                top_element = stack.pop() if stack else '#'
-                # Check if the popped element matches the expected open bracket
-                if bracket_map[char] != top_element:
-                    return False
+        total = 0
+
+        
+        for i in range(len(s)):
+            
+            if i + 1 < len(s) and roman_dict[s[i]] < roman_dict[s[i + 1]]:
+                total -= roman_dict[s[i]]
             else:
-                # Push the open bracket onto the stack
-                stack.append(char)
+                
+                total += roman_dict[s[i]]
 
-        # Return True if stack is empty, meaning all brackets were matched correctly
-        return not stack
-solution = Solution()
+        return total
 
-# Test cases
-print(solution.isValid("()"))       # Output: True
-print(solution.isValid("()[]{}"))   # Output: True
-print(solution.isValid("(]"))       # Output: False
-print(solution.isValid("([)]"))     # Output: False
-print(solution.isValid("{[]}"))     # Output: True
-print(solution.isValid("{[()]}"))   # Output: True
-print(solution.isValid("]"))        # Output: False
-print(solution.isValid("((("))      # Output: False
-print(solution.isValid("([])"))     # Output: True
+
+def isValid(s: str) -> bool:
+    
+    bracket_map = {')': '(', '}': '{', ']': '['}
+
+    
+    stack = []
+
+    
+    for char in s:
+        if char in bracket_map:
+            
+            top_element = stack.pop() if stack else '#'
+
+            
+            if bracket_map[char] != top_element:
+                return False
+        else:
+            
+            stack.append(char)
+
+    
+    return not stack
